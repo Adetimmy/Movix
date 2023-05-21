@@ -1,0 +1,36 @@
+
+ @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Jost:wght@700&family=Work+Sans:wght@300;400;600;700;800;900&display=swap');
+
+*{
+
+    margin: 0;
+    border: 0;
+    padding: 0;
+    text-decoration: none;
+    outline: none;
+    list-style: none;
+    box-sizing:border-box;
+}
+body{
+    font-family: 'Work-Sans', sans-serif;
+}
+
+ .welcome{
+    font-family: 'Jost', sans-serif;
+}
+.form_text{
+    color:#747474
+}
+.container{
+    -ms-overflow-style: none;
+    scrollbar-width: none;  
+}
+.container::-webkit-scrollbar {
+    display: none;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
