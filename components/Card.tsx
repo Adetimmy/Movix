@@ -6,7 +6,7 @@ import tomato from '@/public/assets/tomato.png'
 
 const Card = () => {
   return (
-    <div className="border-3 border-color border-solid w-[150px] sm:w-[250px] my-10 overflow-hidden">
+    <div className="w-[150px] sm:w-[250px] my-10 overflow-hidden">
         <div>
             <Image
             src={Stranger}

@@ -14,7 +14,7 @@ const Sigin = () => {
 const router = useRouter()
 
   return (
-    <div className='flex flex-col justify-center items-center '>
+    <div className='flex flex-col justify-center items-center'>
         <div className='border-2 border-solid rounded-2xl border-color p-4 flex flex-col items-center'>
             <Image
             priority

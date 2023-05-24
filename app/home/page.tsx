@@ -7,6 +7,8 @@ import FeaturedMovies from "@/components/FeaturedMovies"
 export const metadata = {
     title: 'Welcome to Movix',
 }
+
+
 const Home = () => {
   return (
     <main className="relative w-full flex flex-col gap-10">
