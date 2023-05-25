@@ -19,12 +19,13 @@ interface TitleProps{
   poster_path:string,
   vote_average:number,
   release_date:string,
-  original_title:string
+  original_title:string, 
+  original_name: string
  }
 
 
 const FeaturedMovies = ({title, data}:TitleProps) => {
-  console.log(data)
+
 
   const scrollRef = React.useRef<HTMLDivElement | null>(null);
   const [seeMore, setSeeMore] = React.useState<Boolean>(false)
