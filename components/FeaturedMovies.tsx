@@ -4,23 +4,33 @@ import { RiArrowRightSLine } from "react-icons/ri"
 import Card from "./Card"
 import { SlArrowRight, SlArrowLeft} from "react-icons/sl"
 import { features } from '@/utils/hapi'
-import { useFetch } from '@/hooks/useFetch' 
-import { movies } from './MovieList'
+
+
 
 interface TitleProps{
-    title?:string
+    title?:string,
+    data?: DataProps & any
 }
 
 
+ export type DataProps = {
+  id:number,
+  title:string,
+  poster_path:string,
+  vote_average:number,
+  release_date:string,
+  original_title:string
+ }
 
-const FeaturedMovies = ({title}:TitleProps) => {
+
+const FeaturedMovies = ({title, data}:TitleProps) => {
+  console.log(data)
 
   const scrollRef = React.useRef<HTMLDivElement | null>(null);
   const [seeMore, setSeeMore] = React.useState<Boolean>(false)
   const [info, setInfo] = React.useState<any>([]);
-  const {data} = useFetch(movies.movie.TopRatedMovies) as any
 
-  setInfo(data?.results)
+
   
 
 const scroll = (direction: string) => {
@@ -47,11 +57,11 @@ const scroll = (direction: string) => {
 
       <div className="overflow-x-scroll container scroll flex min-w-full sm:px-6 md:px-12 " ref={scrollRef}>
         <div className={`flex gap-12 ${seeMore? 'flex-wrap' :'flex-nowrap'} justify-center`}>
-          {/* {info.map((movi: any) => (
-            <p key={movi.id}>{movi.title}</p>
+           {data?.map((movi:DataProps, i:number) => (
+            <Card key={i} info={movi}/>
           ))}
-           */}
-            <Card/>
+           
+            
           
           
         </div>  

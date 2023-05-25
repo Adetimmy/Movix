@@ -1,7 +1,10 @@
+'use client'
 import Image from "next/image"
 import Lee from '@/public/assets/poster.png'
 import Nabvar from "@/components/Nabvar"
 import FeaturedMovies from "@/components/FeaturedMovies"
+import { useFetch } from '@/hooks/useFetch' 
+import { movies } from "@/components/MovieList"
 
 
 export const metadata = {
@@ -10,6 +13,9 @@ export const metadata = {
 
 
 const Home = () => {
+  const {data:features} = useFetch(movies.movie.TopRatedMovies) as any
+
+
   return (
     <main className="relative w-full flex flex-col gap-10">
       <section className=" min-h-full">
@@ -18,12 +24,14 @@ const Home = () => {
           src={Lee}
           alt="John Wick"
           className="w-full min-h-full  -z-10"
+          priority
         />
       </section>
       
     <div className="px-2 sm:px-7 md:px-24 dark:bg-main-dark-bg">
       <FeaturedMovies
         title='Featured Movies'
+        data={features?.results}
       />
     </div>
     </main>

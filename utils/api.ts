@@ -8,6 +8,10 @@ const headers = {
     Authorization : `Bearer ${TMDB_TOKEN}`,
 };
 
+
+export const revalidate = 60
+
+
 export const fetchDataFromApi = async (url:string) => {
 
     try{
