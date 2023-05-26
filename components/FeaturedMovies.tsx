@@ -10,28 +10,37 @@ import { features } from '@/utils/hapi'
 interface TitleProps{
     title?:string,
     data?: DataProps & any
+    size?:number
+    height? : number
+    autoPlay? : React.ReactNode
 }
 
 
  export type DataProps = {
-  id:number,
-  title:string,
-  poster_path:string,
-  vote_average:number,
-  release_date:string,
-  original_title:string, 
-  original_name: string
+  id?:number,
+  title?:string,
+  poster_path?:string,
+  vote_average?:number,
+  release_date?:string,
+  original_title?:string, 
+  original_name?: string,
+  size?:number
+  height? : number
+  movie_type? : string
+  known_for? : any
+  media_type? : any
+  profile_path: string,
+  name: string
+
+
  }
 
 
-const FeaturedMovies = ({title, data}:TitleProps) => {
+const FeaturedMovies = ({title, data, size, height, autoPlay}:TitleProps) => {
 
 
   const scrollRef = React.useRef<HTMLDivElement | null>(null);
   const [seeMore, setSeeMore] = React.useState<Boolean>(false)
-  const [info, setInfo] = React.useState<any>([]);
-
-
   
 
 const scroll = (direction: string) => {
@@ -52,19 +61,16 @@ const scroll = (direction: string) => {
     </div>
 
 
-    <div className="flex item-center  relative">
+    <div className="flex relative">
     
-      <SlArrowLeft fontSize={23} className={`cursor-pointer absolute top-[40%] left-0 text-white font-extrabold sm:w-10 sm:h-10 hover:text-gray-400 dark:bg-slate-300 dark:text-slate-600 dark:hover:text-gray-200 ${seeMore? 'hidden' :'inline-block' } bg-secondary-dark-bg p-2 rounded-sm`} onClick={() => scroll('left')}/>
+      <SlArrowLeft fontSize={23} className={`cursor-pointer absolute top-[40%] z-10 left-0 text-white font-extrabold sm:w-10 sm:h-10 hover:text-gray-400 dark:bg-slate-300 dark:text-slate-600 dark:hover:text-gray-200 ${seeMore? 'hidden' :'inline-block' } bg-secondary-dark-bg p-2 rounded-sm` } onClick={() => scroll('left')}/>
 
-      <div className="overflow-x-scroll container scroll flex min-w-full sm:px-6 md:px-12 " ref={scrollRef}>
+      <div className="overflow-x-scroll container scroll flex min-w-full" ref={scrollRef}>
         <div className={`flex gap-12 ${seeMore? 'flex-wrap' :'flex-nowrap'} justify-center`}>
            {data?.map((movi:DataProps, i:number) => (
-            <Card key={i} info={movi}/>
+            <Card key={i} info={movi} size={size} height={height} icon={autoPlay}/>
           ))}
-           
-            
-          
-          
+ 
         </div>  
       </div>
     

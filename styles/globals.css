@@ -28,6 +28,9 @@ body{
 .container::-webkit-scrollbar {
     display: none;
 }
+.exclusive{
+    min-height: 300px
+}
 
 @tailwind base;
 @tailwind components;
