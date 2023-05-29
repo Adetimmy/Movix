@@ -30,13 +30,26 @@ const Card = ({ info, size, height, icon }: InfoTech) => {
       className={`w-[150px] sm:w-[250px] my-10  relative`}
       style={{ minWidth: size ? size : "", height: height ? height : "" }}
     >
+      {!size && info.media_type && (
+        <div className="absolute top-0 z-20 flex justify-between p-1 w-full">
+          
+          <div className="rounded-2xl bg-[#F3F4F6] p-1" style={{opacity: info.media_type? "0.5" : '0'}}>
+            <p className="text-lg font-bold">{info.media_type? (info.media_type) : ''}</p>
+          </div>
+          
+          
+          <p className="w-8 h-8 rounded-full bg-[#F3F4F6] flex items-center justify-center cursor-pointer opacity-50">
+            <FcLike fontSize={18} color='green' className="text-black"/>
+          </p> 
+        </div>
+      )} 
       <div className="relative flex flex-col">
         
         {size &&
         <div className="absolute top-[120px] flex justify-center items-center w-full bg-transparent">
         {icon}
         </div>
-      }
+        }
         
         <img
           src={image + (info.poster_path || info.profile_path)}
