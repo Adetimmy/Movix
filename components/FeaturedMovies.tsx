@@ -31,8 +31,9 @@ interface TitleProps{
   media_type? : any
   profile_path: string,
   name: string
-
-
+  results:any
+  overview:string
+  first_air_date:string
  }
 
 
@@ -66,7 +67,7 @@ const scroll = (direction: string) => {
       <SlArrowLeft fontSize={23} className={`cursor-pointer absolute top-[40%] z-10 left-0 text-white font-extrabold sm:w-10 sm:h-10 hover:text-gray-400 dark:bg-slate-300 dark:text-slate-600 dark:hover:text-gray-200 ${seeMore? 'hidden' :'inline-block' } bg-secondary-dark-bg p-2 rounded-sm` } onClick={() => scroll('left')}/>
 
       <div className="overflow-x-scroll container scroll flex min-w-full" ref={scrollRef}>
-        <div className={`flex gap-12 ${seeMore? 'flex-wrap' :'flex-nowrap'} justify-center`}>
+        <div className={`flex gap-12 ${seeMore? 'flex-wrap' :'flex-nowrap'} justify-center ${size? 'mb-10' : ''}`}>
            {data?.map((movi:DataProps, i:number) => (
             <Card key={i} info={movi} size={size} height={height} icon={autoPlay}/>
           ))}

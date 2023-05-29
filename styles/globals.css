@@ -32,6 +32,43 @@ body{
     min-height: 300px
 }
 
+.headerSwiper .swiper-pagination-vertical .swiper-pagination-bullet  {
+    color: white;
+    transform: rotateY(180deg) !important;
+    background-color: transparent;
+    font-size: 12px;
+    opacity: 0.5;
+    margin: 12px 0 !important; 
+    
+   }
+   .headerSwiper .swiper-pagination-vertical .swiper-pagination-bullet-active  {
+     width: 10px;
+     height: 4px;
+     border-radius: 50px;
+     position: relative;
+     display: inline-block;
+     background-color: transparent;
+     margin: 10px 0 !important; 
+     opacity: 1;
+     font-weight: 900;
+   }
+   .headerSwiper .swiper-pagination-vertical .swiper-pagination-bullet-active::before  {
+     content: "";
+     position: absolute;
+     display: inline-block;
+     top: calc(50% - 3px);
+     right: calc(100% + 3px);
+     width: 20px;
+     height: 3px;
+     border-radius: 50px;
+     background-color: white;
+     margin: 8px 0 !important; 
+   }
+   .headerSwiper .swiper-pagination-vertical {
+     transform: rotateY(180deg) !important;
+   }
+  
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -20,40 +20,43 @@ const Home = () => {
   const {data:arrival} = useFetch(movies.movie.HeaderMovies) as any
   const {data:videos} = useFetch(movies.movie.ExclusiveVideos) as any
   const {data:last} = useFetch(movies.movie.FeaturedCast) as any
+  const { data:header } = useFetch(movies.movie.HeaderMovies) as any
 
+  console.log(arrival)
 
 return (
 
       <main className="relative w-full flex flex-col gap-10">
       <section className="min-h-full">
-      <Nabvar/>
-        <Image
-          src={Lee}
-          alt="John Wick"
-          className="w-full min-h-full  -z-10"
-          priority
-        />
+      <Nabvar
+      info={header}
+      />
+        
       </section>
+
+      {
+        !features && !arrival && !videos && !last && (
+        <div className="flex justify-center w-full">
+          <ImSpinner9 className="animate-spin dark:text-blue-700 text-center md:text-7xl sm:text-4xl text-2xl"/>
+        </div>
+        )
+      }
       
     <div className="px-2 sm:px-7 md:px-24 dark:bg-main-dark-bg">
-      {features? 
+      {features && 
         <FeaturedMovies
         title='Featured Movies'
         data={features?.results}
       />
-      :
-      ''  
     }
-      {arrival? 
+      {arrival &&
         <FeaturedMovies
         title='New Arrival'
         data={arrival?.results}
       />
-      :
-      ""
       }
 
-    {videos? 
+    {videos &&
         <FeaturedMovies
         title='Exclusives Videos'
         data={videos?.results}
@@ -61,10 +64,6 @@ return (
         height = {250}
         autoPlay = {<BsPlayCircle fontSize={45} color="white"/>}
       />
-      :
-      (<div className="flex justify-center w-full">
-          <ImSpinner9 className="animate-spin dark:text-blue-700 text-center md:text-7xl sm:text-4xl text-2xl"/>
-      </div>)
      
       }
 
@@ -72,10 +71,7 @@ return (
         <FeaturedMovies
         title='Featured Casts'
         data={last?.results}
-      
       />
-     
-     
       }
       
     </div>

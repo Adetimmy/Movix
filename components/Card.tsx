@@ -24,13 +24,13 @@ const Card = ({ info, size, height, icon }: InfoTech) => {
     return formattedDate;
   };
 
-  console.log(info);
+
   return (
     <div
-      className={`w-[150px] sm:w-[250px] my-10 overflow-hidden relative`}
+      className={`w-[150px] sm:w-[250px] my-10  relative`}
       style={{ minWidth: size ? size : "", height: height ? height : "" }}
     >
-      <div className="w-full relative">
+      <div className="relative flex flex-col">
         
         {size &&
         <div className="absolute top-[120px] flex justify-center items-center w-full bg-transparent">
@@ -41,16 +41,17 @@ const Card = ({ info, size, height, icon }: InfoTech) => {
         <img
           src={image + (info.poster_path || info.profile_path)}
           alt='img_Poster'
-          style={{ objectFit: "fill" }}
+          style={{ objectFit: "fill", height:height? height : '', width: size? size: '' }}
+
         />
       </div>
-      {!size && !info.name && (
+      {!size && !info.known_for && (
         <div className="flex flex-col justify-center p-2">
           <small className="dark:text-gray-400">
-            usa {dateConvert(info.release_date)}
+            usa {dateConvert(info.release_date || info.first_air_date)}
           </small>
-          <p className="font-bold dark:text-gray-600">
-            {info.title || info.original_title || info.original_name}
+          <p className="font-bold dark:text-gray-300">
+            {info.original_name || info.title || info.original_title }
           </p>
           <div className="flex dark:text-gray-400 items-center justify-between gap-4 my-1.5">
             <div className="flex items-center gap-1">
@@ -72,7 +73,10 @@ const Card = ({ info, size, height, icon }: InfoTech) => {
         </div>
       )}
       {size && height && (
-          <p>Place your additional paragraph content here</p>
+          <p className="font-bold dark:text-gray-300 sm:text-xl md:2xl">{info.title || info.original_title || info.original_name}</p>
+      )}
+      { info.known_for && (
+          <p className="font-bold dark:text-gray-300 sm:text-xl md:2xl">{info.name}</p>
       )}
     </div>
   );
