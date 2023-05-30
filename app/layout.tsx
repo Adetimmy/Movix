@@ -1,20 +1,30 @@
+
+import ThemeModifier from '@/components/Theme'
+import ContentProvider, { useStateContext } from '@/context/Provider'
 import '@/styles/globals.css'
 
 
-export const metadata = {
+ export const metadata = {
   title: 'my first website with Nextjs',
   description: 'Phletoras Home of Movies',
   
 }
 
-export default function RootLayout({
-  children,
-}: {
+interface Props {
   children: React.ReactNode
-}) {
+}
+
+export default function RootLayout({ children }:Props) {
+
   return (
-    <html lang="en" className='dark'>
-      <body className='font-body dark:bg-main-dark-bg'>{children}</body>
-    </html>
-  )
+    
+      <html lang="en">:
+      <ContentProvider> 
+        <body className="font-body dark:bg-main-dark-bg">
+          {children}
+        </body>
+      </ContentProvider>
+      </html>
+    
+  );
 }

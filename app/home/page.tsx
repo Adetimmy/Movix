@@ -22,8 +22,6 @@ const Home = () => {
   const {data:last} = useFetch(movies.movie.FeaturedCast) as any
   const { data:header } = useFetch(movies.movie.HeaderMovies) as any
 
-  console.log(arrival)
-
 return (
 
       <main className="relative w-full flex flex-col gap-10">

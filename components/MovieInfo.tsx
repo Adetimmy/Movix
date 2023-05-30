@@ -14,7 +14,7 @@ export const MovieInfo = ({data}:Props) => {
 
   
   return (
-    <div className='absolute top-16 sm:top-28 md:top-44 2xl:top-64 text-white flex flex-col font-display pt-3 px-2 sm:px-7 md:px-24'>
+    <div className='absolute top-44 2xl:top-64 text-white flex flex-col font-display pt-3 px-2 sm:px-7 md:px-24'>
         <h1 className='lg:text-5xl sm:text-3xl text-xl sm:font-bold font-medium 2xl:text-9xl'>
             {/* John Wick 3: <br className='hidden md:block'/> Parabellum */}
             {data?.original_title || data?.original_name || ''}
@@ -47,7 +47,7 @@ export const MovieInfo = ({data}:Props) => {
             />
         </div>
 
-        <p className="text-xs sm:text-sm md:text-base lg:w-1/3 md:1/4 mt-2 hidden sm:block 2xl:text-5xl">{data?.overview || ''}</p>
+        <p className="text-xs sm:text-sm md:text-base lg:w-1/3 md:1/4 mt-2 2xl:text-5xl">{data?.overview || ''}</p>
 
         <Image
         src={youtube}

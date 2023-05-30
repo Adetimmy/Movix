@@ -1,9 +1,11 @@
+'use client'
 import Image from 'next/image'
 import logo from "@/public/assets/movie.jpg"
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
-export const metadata = {
+
+const metadata = {
   title: 'Sign In',
 }
 
@@ -12,7 +14,7 @@ const Sigin = () => {
 const router = useRouter()
 
   return (
-    <div className='flex flex-col justify-center items-center'>
+    <div className='flex flex-col justify-center items-center min-h-screen'>
         <div className='border-2 border-solid rounded-2xl border-color p-4 flex flex-col items-center'>
             <Image
             priority

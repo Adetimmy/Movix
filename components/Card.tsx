@@ -1,10 +1,14 @@
+'use client'
+import { useState } from "react";
 import Image from "next/image";
 import Stranger from "@/public/assets/strange.png";
 import imdb from "@/public/assets/IMDB.png";
 import tomato from "@/public/assets/tomato.png";
 import { DataProps } from "./FeaturedMovies";
 import { image } from "./MovieList";
-import { FcLike } from "react-icons/fc";
+import { FaRegHeart } from "react-icons/fa";
+import  like  from '@/public/assets/redLove.svg'
+import  likegray  from '@/public/assets/icon.svg'
 
 interface InfoTech {
   info: DataProps;
@@ -15,13 +19,15 @@ interface InfoTech {
 
 const Card = ({ info, size, height, icon }: InfoTech) => {
   
+  const [likeMovies, setlikeMovies] = useState(false)
+
     const dateConvert = (date: any) => {
-    const data = new Date(date);
-    const day = data.getDate().toString().padStart(2, "0");
-    const month = (data.getMonth() + 1).toString().padStart(2, "0");
-    const year = data.getFullYear().toString();
-    const formattedDate = `${day}-${month}-${year}`;
-    return formattedDate;
+        const data = new Date(date);
+        const day = data.getDate().toString().padStart(2, "0");
+        const month = (data.getMonth() + 1).toString().padStart(2, "0");
+        const year = data.getFullYear().toString();
+        const formattedDate = `${day}-${month}-${year}`;
+        return formattedDate;
   };
 
 
@@ -30,7 +36,7 @@ const Card = ({ info, size, height, icon }: InfoTech) => {
       className={`w-[150px] sm:w-[250px] my-10  relative`}
       style={{ minWidth: size ? size : "", height: height ? height : "" }}
     >
-      {!size && info.media_type && (
+      {!size  && info.overview && (
         <div className="absolute top-0 z-20 flex justify-between p-1 w-full">
           
           <div className="rounded-2xl bg-[#F3F4F6] p-1" style={{opacity: info.media_type? "0.5" : '0'}}>
@@ -39,7 +45,11 @@ const Card = ({ info, size, height, icon }: InfoTech) => {
           
           
           <p className="w-8 h-8 rounded-full bg-[#F3F4F6] flex items-center justify-center cursor-pointer opacity-50">
-            <FcLike fontSize={18} color='green' className="text-black"/>
+            <Image 
+              src={likeMovies? like : likegray}
+              alt="like icon"
+              onClick={() => setlikeMovies(prev => !prev)} 
+            />
           </p> 
         </div>
       )} 

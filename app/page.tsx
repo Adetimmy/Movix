@@ -1,11 +1,12 @@
 import Sigin from './auth/page'
-import React from 'react'
+import Home from './home/page'
 
 const HomePage = () => {
-  return (
-    <div>
-      <Sigin />
-    </div>
+ 
+return (
+        <div>
+            <Home/>
+        </div>   
   )
 }
 
