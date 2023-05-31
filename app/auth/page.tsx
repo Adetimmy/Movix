@@ -23,7 +23,7 @@ const router = useRouter()
             />
             <h3 className='welcome font-extrabold text-base pt-5'>Hi, Welcome</h3>
 
-            <p className='form_text text-xs md:text-sm font-semibold  '>Please sign-in to your account and start your experience</p>
+            <p className='form_text text-xs md:text-sm font-semibold'>Please sign-in to your account and start your experience</p>
 
             <form className='flex flex-col gap-1 w-full mt-3'>
                 <input 
@@ -50,7 +50,7 @@ const router = useRouter()
                 </button>
             </form>
 
-            <p className='my-10 text-xs md:text-sm'>Don't have an account? 
+            <p className='my-10 text-xs md:text-sm'>{"Don't have an account? "}
               <Link href={'/auth/register'} className='text-red-600 ml-3 font-semibold'>
                 Register
               </Link>

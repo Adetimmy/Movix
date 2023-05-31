@@ -8,6 +8,7 @@ import { movies } from "@/components/MovieList"
 import { ImSpinner9 } from "react-icons/im"
 import { BsPlayCircle } from "react-icons/bs"
 import Loading from "../loading"
+import Footer from "@/components/Footer"
 
 
 const metadata = {
@@ -73,6 +74,7 @@ return (
       }
       
     </div>
+    <Footer/>
     </main>
 
     ) 

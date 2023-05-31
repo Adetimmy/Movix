@@ -61,7 +61,7 @@ const Card = ({ info, size, height, icon }: InfoTech) => {
         </div>
         }
         
-        <img
+        <Image
           src={image + (info.poster_path || info.profile_path)}
           alt='img_Poster'
           style={{ objectFit: "fill", height:height? height : '', width: size? size: '' }}
@@ -73,7 +73,7 @@ const Card = ({ info, size, height, icon }: InfoTech) => {
           <small className="dark:text-gray-400">
             usa {dateConvert(info.release_date || info.first_air_date)}
           </small>
-          <p className="font-bold dark:text-gray-300">
+          <p className="font-bold dark:text-gray-300 text-[#111827]">
             {info.original_name || info.title || info.original_title }
           </p>
           <div className="flex dark:text-gray-400 items-center justify-between gap-4 my-1.5">
@@ -96,10 +96,10 @@ const Card = ({ info, size, height, icon }: InfoTech) => {
         </div>
       )}
       {size && height && (
-          <p className="font-bold dark:text-gray-300 sm:text-xl md:2xl">{info.title || info.original_title || info.original_name}</p>
+          <p className="font-bold text-[#111827] dark:text-gray-300 sm:text-xl md:2xl">{info.title || info.original_title || info.original_name}</p>
       )}
       { info.known_for && (
-          <p className="font-bold dark:text-gray-300 sm:text-xl md:2xl">{info.name}</p>
+          <p className="font-bold text-[#111827] dark:text-gray-300 sm:text-xl md:2xl">{info.name}</p>
       )}
     </div>
   );

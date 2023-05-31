@@ -67,6 +67,10 @@ body{
    .headerSwiper .swiper-pagination-vertical {
      transform: rotateY(180deg) !important;
    }
+
+small, a{
+    color: #111827
+   }
   
 
 @tailwind base;
