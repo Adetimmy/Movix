@@ -19,7 +19,7 @@ export const MovieInfo = ({data}:Props) => {
             {/* John Wick 3: <br className='hidden md:block'/> Parabellum */}
             {data?.original_title || data?.original_name || ''}
         </h1>
-        <div className="flex items-center gap-5 sm:mt-4 mt-2">
+        <div className="flex items-center gap-5 sm:mt-4 mt-2 text-white">
             <div className="flex items-center gap-2">
                 <Image 
                     src={imdb}

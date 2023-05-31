@@ -5,7 +5,7 @@ import { FaFacebookSquare, FaGithub, FaInstagram, FaLinkedin, FaTwitter } from '
 
 const Footer = () => {
   return (
-    <div className='flex gap-6 items-center flex-col w-full my-12 font-display text-sm text-center sm:text-base'>
+    <div className='flex gap-6 items-center flex-col w-full my-12 font-display text-sm text-center sm:text-base foot'>
         <div className='flex justify-between md:w-1/5 text-xl w-1/2'>
             <Link href={'https://facebook.com/ogunle2'} target='_blank'><FaFacebookSquare/></Link>
             <Link href={''} target='_blank'><FaInstagram/></Link>

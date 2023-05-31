@@ -2,13 +2,13 @@
 import { useState } from "react";
 import Image from "next/image";
 import Stranger from "@/public/assets/strange.png";
-import imdb from "@/public/assets/IMDB.png";
-import tomato from "@/public/assets/tomato.png";
+import imdb from "../public/assets/IMDB.png";
+import tomato from "../public/assets/tomato.png";
 import { DataProps } from "./FeaturedMovies";
 import { image } from "./MovieList";
 import { FaRegHeart } from "react-icons/fa";
-import  like  from '@/public/assets/redLove.svg'
-import  likegray  from '@/public/assets/icon.svg'
+import  like  from '../public/assets/redLove.svg'
+import  likegray  from '../public/assets/icon.svg'
 
 interface InfoTech {
   info: DataProps;
@@ -33,7 +33,7 @@ const Card = ({ info, size, height, icon }: InfoTech) => {
 
   return (
     <div
-      className={`w-[150px] sm:w-[250px] my-10  relative`}
+      className={`w-[150px] sm:w-[250px] my-10  relative card-small`}
       style={{ minWidth: size ? size : "", height: height ? height : "" }}
     >
       {!size  && info.overview && (

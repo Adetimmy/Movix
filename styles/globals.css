@@ -68,10 +68,10 @@ body{
      transform: rotateY(180deg) !important;
    }
 
-small, a{
+.card-small small, .foot a{
     color: #111827
    }
-  
+
 
 @tailwind base;
 @tailwind components;
