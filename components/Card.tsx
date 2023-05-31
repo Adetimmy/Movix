@@ -65,6 +65,8 @@ const Card = ({ info, size, height, icon }: InfoTech) => {
           src={image + (info.poster_path || info.profile_path)}
           alt='img_Poster'
           style={{ objectFit: "fill", height:height? height : '', width: size? size: '' }}
+          width={200}
+          height={140}
 
         />
       </div>
