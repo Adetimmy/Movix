@@ -1,11 +1,11 @@
-
+'use client'
 import ThemeModifier from '@/components/Theme'
 import ContentProvider, { useStateContext } from '@/context/Provider'
 import '@/styles/globals.css'
 
 
  export const metadata = {
-  title: 'my first website with Nextjs',
+  title: 'Movix',
   description: 'Phletoras Home of Movies',
   
 }
@@ -15,16 +15,28 @@ interface Props {
 }
 
 export default function RootLayout({ children }:Props) {
-
+ 
   return (
-    
-      <html lang="en">:
-      <ContentProvider> 
-        <body className="font-body dark:bg-main-dark-bg">
-          {children}
-        </body>
-      </ContentProvider>
-      </html>
+   
+    <ContentProvider>
+      <ThemeContainer>
+        {children}
+      </ThemeContainer>
+    </ContentProvider>
+      
     
   );
+}
+
+const ThemeContainer = ({children}:Props) => {
+  
+  const { theme } = useStateContext()
+  return (
+      <html lang="en" className={theme === 'dark'? 'dark' : ''}>
+        <body className="font-body dark:bg-main-dark-bg relative">
+          {children}
+          <ThemeModifier/>
+        </body>
+      </html>
+  )
 }

@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect } from 'react';
 import { movies, image } from './MovieList';
 import { DataProps } from './FeaturedMovies';
@@ -15,7 +16,7 @@ interface Props {
 }
 
 const NavDetails = ({ data }: Props) => {
-  console.log(data);
+
 
   // useEffect(() => {
   //   const mainSwiper = new Swiper('.swiper-container', {

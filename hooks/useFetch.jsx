@@ -4,24 +4,20 @@ import { fetchDataFromApi } from '../utils/api';
 
 export const useFetch = (url) => {
 
-    const [ loading, setLoading ] = useState(null);
+    const [ loading, setLoading ] = useState(true);
     const [ data, setData ] = useState(null);
     const [ error, setError ] = useState(null);
 
     useEffect(() => {
 
-        setLoading("loading...");
-        setData(null);
-        setError(null);
-
         fetchDataFromApi(url)
         .then((response) => {
-            setLoading(null);
+            setLoading(false);
             setData(response);
         })
         .catch((error) => {
-            setLoading(null);
-            setError("Something went wrong!");
+            setLoading(true);
+            setError(error);
         })
     }, [url]);
 

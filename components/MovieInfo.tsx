@@ -19,14 +19,15 @@ export const MovieInfo = ({data}:Props) => {
             {/* John Wick 3: <br className='hidden md:block'/> Parabellum */}
             {data?.original_title || data?.original_name || ''}
         </h1>
-        <div className="flex items-center gap-5 sm:mt-4 mt-2 text-white">
+        <div className="flex items-center gap-5 2xl:gap-[180px] sm:mt-4 mt-2 text-white 2xl:my-4">
             <div className="flex items-center gap-2">
                 <Image 
                     src={imdb}
                     alt='Imdb'
+                    className="2xl:w-[76px]"
                 />
                 {data?.vote_average && (
-                <small className="text-[10px] sm:text-xs">
+                <small className="text-[10px] sm:text-xs 2xl:text-2xl">
                   {(data?.vote_average || '' as any).toFixed(0) * 10}/100
                 </small>
               )}
@@ -36,8 +37,9 @@ export const MovieInfo = ({data}:Props) => {
                 <Image 
                     src={tomato}
                     alt='tomato'
+                    className="2xl:w-[46px]"
                 />
-                <small className="text-xs ">97%</small>
+                <small className="text-[10px] sm:text-xs 2xl:text-2xl">97%</small>
             </div>
 
             <Image
@@ -52,7 +54,7 @@ export const MovieInfo = ({data}:Props) => {
         <Image
         src={youtube}
         alt="youtube"
-        className="mt-4 cursor-pointer hidden lg:block"
+        className="mt-4 cursor-pointer hidden lg:block 2xl:w-[350px] 2xl:mt-10"
         />
     </div>
   )

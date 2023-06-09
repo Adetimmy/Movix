@@ -1,12 +1,14 @@
+import Route from '@/components/Route'
 import Sigin from './auth/page'
-import Home from './home/page'
+import Home from '../components/home/page'
 
 const HomePage = () => {
  
 return (
-        <div>
-            <Home/>
-        </div>   
+        <Route>
+          <Home/>  
+        </Route>
+            
   )
 }
 

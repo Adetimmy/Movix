@@ -7,7 +7,7 @@ import { useFetch } from '@/hooks/useFetch'
 import { movies } from "@/components/MovieList"
 import { ImSpinner9 } from "react-icons/im"
 import { BsPlayCircle } from "react-icons/bs"
-import Loading from "../loading"
+import Loading from "../../app/loading"
 import Footer from "@/components/Footer"
 
 

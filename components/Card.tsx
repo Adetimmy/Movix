@@ -1,14 +1,12 @@
 'use client'
 import { useState } from "react";
 import Image from "next/image";
-import Stranger from "@/public/assets/strange.png";
 import imdb from "../public/assets/IMDB.png";
 import tomato from "../public/assets/tomato.png";
 import { DataProps } from "./FeaturedMovies";
 import { image } from "./MovieList";
-import { FaRegHeart } from "react-icons/fa";
-import  like  from '../public/assets/redLove.svg'
-import  likegray  from '../public/assets/icon.svg'
+import  like  from '@/public/assets/redLove.svg'
+import  likegray  from '@/public/assets/Icon.svg'
 
 interface InfoTech {
   info: DataProps;
@@ -65,8 +63,9 @@ const Card = ({ info, size, height, icon }: InfoTech) => {
           src={image + (info.poster_path || info.profile_path)}
           alt='img_Poster'
           style={{ objectFit: "fill", height:height? height : '', width: size? size: '' }}
-          width={200}
-          height={140}
+           // Set layout to "responsive"
+          width={1000} // Set the desired width of the image
+          height={600} // Set the desired height of the image
 
         />
       </div>
@@ -82,14 +81,14 @@ const Card = ({ info, size, height, icon }: InfoTech) => {
             <div className="flex items-center gap-1">
               <Image src={imdb} alt="Imdb" />
               {info.vote_average && (
-                <small className="text-[10px] sm:text-xs">
+                <small className="text-[10px] sm:text-xs dark:text-gray-300">
                   {(info.vote_average as any).toFixed(0) * 10}/100
                 </small>
               )}
             </div>
             <div className="flex items-center gap-1">
               <Image src={tomato} alt="tomato" />
-              <small className="text-[10px] sm:text-xs">97%</small>
+              <small className="text-[10px] sm:text-xs dark:text-gray-300">97%</small>
             </div>
           </div>
           {!info.known_for && (
