@@ -8,8 +8,7 @@ import { useStateContext } from '@/context/Provider'
 import { MdOutlineReportGmailerrorred } from 'react-icons/md'
 import { ImSpinner7 } from 'react-icons/im'
 
-
-export const metadata = {
+ const metadata = {
   title: 'Sign In',
 }
 

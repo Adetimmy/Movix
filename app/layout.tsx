@@ -4,7 +4,7 @@ import ContentProvider, { useStateContext } from '@/context/Provider'
 import '@/styles/globals.css'
 
 
- export const metadata = {
+const metadata = {
   title: 'Movix',
   description: 'Phletoras Home of Movies',
   
