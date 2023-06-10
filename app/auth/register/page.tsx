@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation'
 import { useStateContext } from '@/context/Provider'
 import { MdOutlineReportGmailerrorred } from 'react-icons/md'
 import { ImSpinner7 } from 'react-icons/im'
+import { BsEye, BsEyeSlash } from 'react-icons/bs'
 
 
 const metadata = {
@@ -19,6 +20,7 @@ const Register = () => {
   const {signUp, loading} = useStateContext()
 
   const [error, setError] = useState('')
+  const [show, setShow] = useState(false)
   const [userId, setUserId] = useState<any>({
     userName:'',
     email:"", 
@@ -81,18 +83,25 @@ const Register = () => {
                       autoComplete='on'
                       onChange={handleChange}
                   />
-                  <input 
-                      type='password'
-                      value={userId.password}
-                      name='password'
-                      required
-                      placeholder='Password'
-                      className='border-color border rounded-lg outline-none mt-3 min-w-full py-2 px-3 text-sm
-                      h-12
-                      '
-                      autoComplete='on'
-                      onChange={handleChange}
-                  />
+                  <div className='w-full relative flex justify-center items-center'>
+                    <input 
+                        type= {show? 'text':'password'}
+                        value={userId.password}
+                        name='password'
+                        required
+                        placeholder='Password'
+                        className='border-color border rounded-lg outline-none mt-3 min-w-full py-2 px-3 text-sm
+                        h-12
+                        '
+                        autoComplete='on'
+                        onChange={handleChange}
+                    
+                    />
+                    <span className="absolute right-3 top-6" onClick={() => setShow(!show)}>
+                      {show ? <BsEye size={21} /> : <BsEyeSlash size={21} />}
+                    </span>
+                  </div>
+                 
                   {error && <p className='text-red-500 flex justify-center items-start gap-1'><MdOutlineReportGmailerrorred/>{error}</p>}
                   <button
                   type='button'
