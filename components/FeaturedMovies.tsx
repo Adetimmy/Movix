@@ -3,7 +3,6 @@ import React from 'react'
 import { RiArrowRightSLine } from "react-icons/ri"
 import Card from "./Card"
 import { SlArrowRight, SlArrowLeft} from "react-icons/sl"
-import { features } from '@/utils/hapi'
 
 
 
