@@ -46,7 +46,7 @@ const NavDetails = ({ data }: Props) => {
         loop={true}
         autoplay={{
           delay: 10000,
-          disableOnInteraction: false,
+          disableOnInteraction: true,
         }}
         pagination={{
           clickable: true,
