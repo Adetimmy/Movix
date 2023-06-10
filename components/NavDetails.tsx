@@ -52,7 +52,7 @@ const NavDetails = ({ data }: Props) => {
           clickable: true,
         }}
         modules={[Autoplay, Mousewheel, Pagination]}
-        className="headerSwiper h-[100vh] w-full"
+        className="headerSwiper h-screen w-full"
       >
 
       {data?.results?.slice(0, 9).map((header: DataProps) => (

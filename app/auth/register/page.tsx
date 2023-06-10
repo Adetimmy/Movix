@@ -17,9 +17,9 @@ const metadata = {
 const Register = () => {
 
   const router = useRouter()
-  const {signUp, loading} = useStateContext()
+  const {signUp, loading, error} = useStateContext()
 
-  const [error, setError] = useState('')
+
   const [show, setShow] = useState(false)
   const [userId, setUserId] = useState<any>({
     userName:'',
@@ -43,7 +43,7 @@ const Register = () => {
     }
 
     catch(err:any){
-      setError(err.message)
+      alert(err.message)
     }
     
   }

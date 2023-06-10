@@ -16,7 +16,7 @@ const ContentProvider = ({children}:contextType) => {
   const [theme, setTheme] = useState('system');
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState<any>(null)
-
+  const [error, setError] = useState<any>(null)
   
   const signUp =async (email: string, password:any, use:any) => {
     setLoading(true)
@@ -27,8 +27,8 @@ const ContentProvider = ({children}:contextType) => {
         }
 
       ).catch((err) => {
-        console.log(err.message)
-      }).finally( async () => {await setLoading(false)})
+        setError(err.message)
+      }).finally(  () => setTimeout( () => {setLoading(false)}, 5000) )
   }
 
   const writeName = async (val:any) => {
@@ -51,8 +51,8 @@ const ContentProvider = ({children}:contextType) => {
     return  await signInWithEmailAndPassword(auth, email, password)
                   .then(() => console.log('logged In'))
                   .catch((err) => {
-                    console.log(err.message)
-                  }).finally(  () => { setLoading(false)})
+                    setError(err.message)
+                  }).finally( () => setTimeout( () => {setLoading(false)}, 5000) )
   }
 
   const logOut = async () => { 
@@ -111,7 +111,7 @@ const ContentProvider = ({children}:contextType) => {
   };
 
   return (
-    <StateContext.Provider value={ {theme, handleThemeChange, signUp, logIn, logOut, user, loading}}>
+    <StateContext.Provider value={ {theme, handleThemeChange, signUp, logIn, logOut, user, loading, error}}>
         {children}
     </StateContext.Provider> 
   )

@@ -14,9 +14,8 @@ import { BsEye, BsEyeSlash } from 'react-icons/bs'
 }
 
 const Sigin = () => {
-  const {logIn, loading} = useStateContext()
+  const {logIn, loading, error} = useStateContext()
 
-  const [error, setError] = useState('')
   const [show, setShow] = useState(false)
 
   const [userId, setUserId] = useState<any>({
@@ -40,7 +39,7 @@ const handleClick = async () => {
   }
 
   catch(err:any){
-    setError(err.message)
+    alert(err.message)
   }
 
 }
