@@ -28,7 +28,7 @@ const ContentProvider = ({children}:contextType) => {
 
       ).catch((err) => {
         setError(err.message)
-      }).finally(  () => setTimeout( () => {setLoading(false)}, 5000) )
+      }).finally(  () => setTimeout( () => {setLoading(false)}, 500) )
   }
 
   const writeName = async (val:any) => {
@@ -52,7 +52,7 @@ const ContentProvider = ({children}:contextType) => {
                   .then(() => console.log('logged In'))
                   .catch((err) => {
                     setError(err.message)
-                  }).finally( () => setTimeout( () => {setLoading(false)}, 5000) )
+                  }).finally( () => setTimeout( () => {setLoading(false)}, 500) )
   }
 
   const logOut = async () => { 
