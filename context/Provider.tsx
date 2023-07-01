@@ -87,6 +87,7 @@ const ContentProvider = ({children}:contextType) => {
           displayName: user.displayName,
           photo: user.photoURL
         })
+        localStorage.setItem('userLoggedIn', user?.displayName as string)
       }
       else {
         setUser(null)

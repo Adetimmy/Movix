@@ -15,12 +15,12 @@ const Route = ({children}:C) => {
 
 
     useEffect( () => {
-        if(!user){
+        if(!user && !(localStorage.getItem('userLoggedIn'))){
           return  router.push('/auth')
         }
     }, [router, user])
 
-  return <> {user? children : null} </>
+  return <> {user && localStorage.getItem('userLoggedIn') && children } </>
 }
 
 export default Route

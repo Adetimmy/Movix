@@ -43,7 +43,7 @@ const handleSignOut = () => {
             />
             </div>
             
-            <div className=' flex items-center relative hidden sm:flex'>
+            <div className='items-center relative hidden sm:flex'>
                 <input
                     type='text'
                     placeholder='What do you want to watch?'
