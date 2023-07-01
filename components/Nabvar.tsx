@@ -26,6 +26,7 @@ const {logOut, user} = useStateContext()
 
 const handleSignOut = () => {
     localStorage.removeItem('user')
+    localStorage.removeItem('userLoggedIn')
      logOut()
      router.push('/auth')
 }
