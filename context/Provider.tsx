@@ -70,7 +70,7 @@ const ContentProvider = ({children}:contextType) => {
   
     if (savedTheme) {
       setTheme(systemTheme);
-      setThemeUpdate('system')
+      setThemeUpdate('System')
     } 
     else {
       setTheme(theme);
