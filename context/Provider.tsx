@@ -14,6 +14,7 @@ interface contextType{
 const ContentProvider = ({children}:contextType) => {
 
   const [theme, setTheme] = useState('system');
+  const [themeUpdate, setThemeUpdate] = useState<string>('system');
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState<any>(null)
   const [error, setError] = useState<any>(null)
@@ -65,13 +66,17 @@ const ContentProvider = ({children}:contextType) => {
       ? 'dark'
       : 'light';
   
-    const savedTheme = localStorage.getItem('theme');
+    const savedTheme = localStorage.getItem('theme') as string;
   
     if (savedTheme) {
-      setTheme(savedTheme);
-    } else {
       setTheme(systemTheme);
+      setThemeUpdate('system')
+    } 
+    else {
+      setTheme(theme);
+      setThemeUpdate(theme)
     }
+
   }, []);
 
   useEffect(() => {
@@ -101,18 +106,26 @@ const ContentProvider = ({children}:contextType) => {
   }, [theme]);
 
   const handleThemeChange = () => {
-    
-    if (theme === 'dark') {
-      setTheme('light');
-    } else if (theme === 'light') {
-      setTheme('system');
-    } else {
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light';
+    console.log(themeUpdate)
+    if (themeUpdate === 'System') {
+      setThemeUpdate('Dark')
+      setTheme('dark');
+    } 
+    else if (themeUpdate === 'Dark'){
+      setThemeUpdate('Light')
+      setTheme(systemTheme === 'dark'? 'light' : systemTheme);
+    }
+    else {
+      setThemeUpdate('System')
       setTheme('dark');
     }
   };
 
   return (
-    <StateContext.Provider value={ {theme, handleThemeChange, signUp, logIn, logOut, user, loading, error}}>
+    <StateContext.Provider value={ {theme, handleThemeChange, signUp, logIn, logOut, user, loading, error, themeUpdate}}>
         {children}
     </StateContext.Provider> 
   )
