@@ -124,7 +124,7 @@ const handleSignOut = () => {
             data={info}
           />
         </div>
-        <div className='md:hidden absolute right-0 bottom-16 w-10 h-10 bg-orange-500 p-1 rounded-l-full backdrop-blur-lg shadow-sm cursor-pointer z-20 animate-pulse'>
+        <div className='md:hidden absolute right-0 bottom-24 w-10 h-10 bg-orange-500 p-1 rounded-l-full backdrop-blur-lg shadow-sm cursor-pointer z-20 animate-pulse'>
           <Link href={'#next'}>
             <MdArrowDropDown fontSize={30} className='text-slate-200'/>
           </Link>
