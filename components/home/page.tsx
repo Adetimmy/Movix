@@ -41,7 +41,7 @@ return (
         )
       }
       
-    <div className="px-2 sm:px-7 md:px-24 dark:bg-main-dark-bg">
+    <div className="px-2 sm:px-7 md:px-24 dark:bg-main-dark-bg" id="next">
       {features && 
         <FeaturedMovies
         title='Featured Movies'

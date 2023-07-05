@@ -8,6 +8,7 @@ import { useStateContext } from '@/context/Provider'
 import { MdOutlineReportGmailerrorred } from 'react-icons/md'
 import { ImSpinner7 } from 'react-icons/im'
 import { BsEye, BsEyeSlash } from 'react-icons/bs'
+import Register from '@/components/register/page'
 
  const metadata = {
   title: 'Sign In',
@@ -17,6 +18,7 @@ const Sigin = () => {
   const {logIn, loading, error} = useStateContext()
 
   const [show, setShow] = useState(false)
+  const [register, setRegister] = useState(false)
 
   const [userId, setUserId] = useState<any>({
   email:"", 
@@ -45,8 +47,8 @@ const handleClick = async () => {
 }
 
   return (
-    <div className='flex flex-col justify-center items-center min-h-screen px-2 md:px-0'>
-        <div className='border-2 border-solid rounded-2xl border-color p-4 flex flex-col items-center shadow-md'>
+    <div className='flex flex-col justify-center items-center min-h-screen px-2 md:px-0'>{!register && (
+      <div className='border-2 border-solid rounded-2xl border-color p-4 flex flex-col items-center shadow-md'>
             <Image
             priority
             src={logo}
@@ -93,14 +95,15 @@ const handleClick = async () => {
                 </button>
             </form>
             {error && <p className='text-red-500 flex items-center gap-1 text-sm sm:text-base'><MdOutlineReportGmailerrorred/>{error}</p>}
-            <p className='my-10 text-xs md:text-sm dark:text-gray-500 font-semibold'>{"Don't have an account? "}
-              <Link href={'/auth/register'} className='text-red-600 ml-3 font-semibold'>
+            <p className='my-10 text-xs md:text-sm dark:text-gray-500 font-semibold'>Don't have an account?
+              <button className='text-red-600 ml-3 font-semibold' onClick={() => setRegister(true)}>
                 Register
-              </Link>
-             
-              </p>
+              </button>
+            </p>
         </div>
-       
+    )}
+        
+       {register && (<Register register={register} setRegister={setRegister}/>)}
     </div>
   )
 }

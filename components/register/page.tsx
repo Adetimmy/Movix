@@ -1,5 +1,5 @@
 'use client'
-import { useState} from 'react'
+import { Dispatch, SetStateAction, useState} from 'react'
 import Image from "next/image"
 import logo from "@/public//assets/movie.jpg"
 import Link from "next/link"
@@ -14,7 +14,10 @@ const metadata = {
   title: 'Register',
 }
 
-const Register = () => {
+const Register = ({register, setRegister}:{
+  register:boolean
+  setRegister:Dispatch<SetStateAction<boolean>>
+}) => {
 
   const router = useRouter()
   const {signUp, loading, error} = useStateContext()
@@ -49,7 +52,7 @@ const Register = () => {
   }
   return (
 
-    <div className='flex flex-col justify-center items-center min-h-screen px-2 md:px-0'>
+ 
         <div className='border-2 border-solid rounded-2xl border-color p-4 flex flex-col items-center shadow-md transition-all'>
               <Image
               priority
@@ -114,15 +117,14 @@ const Register = () => {
                   </button>
               </form>
   
-              <p className='my-10 text-xs md:text-sm dark:text-gray-500'>Already have an account? 
-                <Link href={'/auth'} className='text-red-600 ml-3 font-semibold'>
+              <p className='my-10 text-xs md:text-sm dark:text-gray-500'>Already have an account?
+                <button className='text-red-600 ml-3 font-semibold' onClick={() => setRegister(false)}>
                   Login
-                </Link>
-               
-                </p>
+                </button>
+              </p>
           </div>
          
-      </div>
+   
   )
 }
 
