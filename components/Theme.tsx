@@ -20,7 +20,7 @@ const { handleThemeChange, themeUpdate } = useStateContext()
         <p className='text-sm dark:text-slate-600 text-gray-200'>{themeUpdate} Theme</p>
           </div>}
         {themeUpdate === 'System' && <div className='flex justify-center gap-2 items-center'>
-        <HiDesktopComputer fontSize={18}  className='text-gray-700 '/>
+        <HiDesktopComputer fontSize={18}  className='dark:text-gray-700 text-white'/>
         <p className='text-sm dark:text-slate-600 text-gray-200'>{themeUpdate} Default</p>
           </div>}
       </button>
