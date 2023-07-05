@@ -14,7 +14,7 @@ interface contextType{
 const ContentProvider = ({children}:contextType) => {
 
   const [theme, setTheme] = useState('system');
-  const [themeUpdate, setThemeUpdate] = useState<string>('system');
+  const [themeUpdate, setThemeUpdate] = useState<string>('System');
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState<any>(null)
   const [error, setError] = useState<any>(null)
