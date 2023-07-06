@@ -9,7 +9,7 @@ import { MdOutlineReportGmailerrorred } from 'react-icons/md'
 import { ImSpinner7 } from 'react-icons/im'
 import { BsEye, BsEyeSlash } from 'react-icons/bs'
 import Register from '@/components/register/page'
-import { logInMsg } from '@/components/firebaseError'
+import { firebaseError } from '@/components/firebaseError'
 
  const metadata = {
   title: 'Sign In',
@@ -17,6 +17,7 @@ import { logInMsg } from '@/components/firebaseError'
 
 const Sigin = () => {
   const {logIn, loading } = useStateContext()
+  const { logInMsg } = firebaseError()
 
   const [show, setShow] = useState(false)
   const [register, setRegister] = useState(false)

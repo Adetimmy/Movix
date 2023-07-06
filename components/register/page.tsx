@@ -3,12 +3,11 @@ import { Dispatch, SetStateAction, useState} from 'react'
 import Image from "next/image"
 import logo from "@/public//assets/movie.jpg"
 import Link from "next/link"
-import { useRouter } from 'next/navigation'
 import { useStateContext } from '@/context/Provider'
 import { MdOutlineReportGmailerrorred } from 'react-icons/md'
 import { ImSpinner7 } from 'react-icons/im'
 import { BsEye, BsEyeSlash } from 'react-icons/bs'
-import { signUpMsg } from '../firebaseError'
+import { firebaseError } from '../firebaseError'
 
 
 const metadata = {
@@ -20,9 +19,9 @@ const Register = ({register, setRegister}:{
   setRegister:Dispatch<SetStateAction<boolean>>
 }) => {
 
-  const router = useRouter()
-  const {signUp, loading } = useStateContext()
 
+  const {signUp, loading } = useStateContext()
+  const {signUpMsg } = firebaseError()
 
   const [show, setShow] = useState(false)
   const [userId, setUserId] = useState<any>({
