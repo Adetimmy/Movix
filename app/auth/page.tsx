@@ -9,13 +9,14 @@ import { MdOutlineReportGmailerrorred } from 'react-icons/md'
 import { ImSpinner7 } from 'react-icons/im'
 import { BsEye, BsEyeSlash } from 'react-icons/bs'
 import Register from '@/components/register/page'
+import { logInMsg } from '@/components/firebaseError'
 
  const metadata = {
   title: 'Sign In',
 }
 
 const Sigin = () => {
-  const {logIn, loading, error} = useStateContext()
+  const {logIn, loading } = useStateContext()
 
   const [show, setShow] = useState(false)
   const [register, setRegister] = useState(false)
@@ -84,6 +85,7 @@ const handleClick = async () => {
                       {show ? <BsEye size={21} /> : <BsEyeSlash size={21} />}
                     </span>
                   </div>
+                  {logInMsg && <p className='text-red-500 flex items-center gap-1 text-sm sm:text-base'><MdOutlineReportGmailerrorred/>{logInMsg}</p>}
                 <button
                 type='button'
                 className='rounded-lg py-3 px-5 text-center hover:bg-slate-800 bg-black text-slate-200 text-xs md:text-sm font-bold uppercase mt-5 h-12 flex justify-center items-center gap-3'
@@ -94,7 +96,7 @@ const handleClick = async () => {
                   login
                 </button>
             </form>
-            {error && <p className='text-red-500 flex items-center gap-1 text-sm sm:text-base'><MdOutlineReportGmailerrorred/>{error}</p>}
+           
             <p className='my-10 text-xs md:text-sm dark:text-gray-500 font-semibold'>Don't have an account?
               <button className='text-red-600 ml-3 font-semibold' onClick={() => setRegister(true)}>
                 Register

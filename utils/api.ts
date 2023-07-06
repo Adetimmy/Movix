@@ -8,7 +8,7 @@ const headers = {
     Authorization : `Bearer ${TMDB_TOKEN}`,
 };
 
-
+export let err='' as any
 export const revalidate = 60
 
 
@@ -20,7 +20,9 @@ export const fetchDataFromApi = async (url:string) => {
       
     }
     catch (error){
-        console.log(error);
+        
+        err = error
+        console.log(err);
         return error;
     }
 }

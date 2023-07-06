@@ -32,8 +32,8 @@ const ThemeContainer = ({children}:Props) => {
   
   const { theme } = useStateContext()
   return (
-      <html lang="en" className={`${theme === 'dark'? 'dark' : ''} scroll-smooth`}>
-        <body className="font-body dark:bg-main-dark-bg relative">
+      <html lang="en" className={`${theme === 'dark'? 'dark' : ''} scroll-smooth z-30`}>
+        <body className="font-body dark:bg-main-dark-bg relative ">
           {children}
           <ThemeModifier/>
         </body>

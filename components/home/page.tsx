@@ -9,6 +9,7 @@ import { ImSpinner9 } from "react-icons/im"
 import { BsPlayCircle } from "react-icons/bs"
 import Loading from "../../app/loading"
 import Footer from "@/components/Footer"
+import { err } from "@/utils/api"
 
 
 const metadata = {
@@ -17,11 +18,29 @@ const metadata = {
 
 
 const Home = () => {
-  const {data:features} = useFetch(movies.movie.TopRatedMovies) as any
-  const {data:arrival} = useFetch(movies.movie.HeaderMovies) as any
-  const {data:videos} = useFetch(movies.movie.ExclusiveVideos) as any
-  const {data:last} = useFetch(movies.movie.FeaturedCast) as any
-  const { data:header } = useFetch(movies.movie.HeaderMovies) as any
+  const {data:features, loading:load1} = useFetch(movies.movie.TopRatedMovies) as any
+  const {data:arrival, loading:load2} = useFetch(movies.movie.HeaderMovies) as any
+  const {data:videos, loading:load3} = useFetch(movies.movie.ExclusiveVideos) as any
+  const {data:last, loading:load4} = useFetch(movies.movie.FeaturedCast) as any
+  const { data:header, loading:load} = useFetch(movies.movie.HeaderMovies) as any
+
+
+  if(load1 && load2 && load3 && load4 && load){
+    return <Loading />
+  }
+
+  else if(err){
+   
+    return (
+      <div className='bg-white dark:bg-gray-900 flex justify-center flex-col items-center min-h-screen' >
+          <h1 className='text-lg md:text-2xl dark:text-gray-400 font-semibold'>something went wrong! </h1>
+          <p className="dark:text-gray-400 mb-3 font-semibold"> {err.message}</p>
+          <button onClick={ () => window.location.reload()} className="py-1.5 px-2.5 rounded-lg bg-purple-800 dark:bg-red-500 text-gray-200 font-semibold shadow-md">
+            Try again
+          </button>
+      </div>
+    )
+  }
 
 return (
 

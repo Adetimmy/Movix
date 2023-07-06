@@ -9,7 +9,7 @@ import { RiSunLine } from 'react-icons/ri';
 const ThemeModifier = () => {
 const { handleThemeChange, themeUpdate } = useStateContext()
   return (
-    <div className='fixed z-50 bottom-2 right-3 bg-slate-700 dark:bg-slate-100 rounded-xl p-2'>
+    <div className='fixed bottom-2 right-3 bg-slate-700 dark:bg-slate-100 rounded-xl p-2'>
       <button onClick={handleThemeChange}>
         {themeUpdate === 'Dark' &&   <div className='flex justify-center gap-2 items-center'>
         <BsMoonStarsFill fontSize={18} />

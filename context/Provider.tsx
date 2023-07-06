@@ -17,7 +17,9 @@ const ContentProvider = ({children}:contextType) => {
   const [themeUpdate, setThemeUpdate] = useState<string>('system');
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState<any>(null)
-  const [error, setError] = useState<any>(null)
+  const [signUpError, setSignUpError] = useState<Error | null>(null)
+  const [logInError, setLogInError] = useState<Error | null>(null)
+
   
   const signUp =async (email: string, password:any, use:any) => {
     setLoading(true)
@@ -28,7 +30,7 @@ const ContentProvider = ({children}:contextType) => {
         }
 
       ).catch((err) => {
-        setError(err.message)
+        setSignUpError(err.message)
       }).finally(  () => setTimeout( () => {setLoading(false)}, 500) )
   }
 
@@ -52,7 +54,7 @@ const ContentProvider = ({children}:contextType) => {
     return  await signInWithEmailAndPassword(auth, email, password)
                   .then(() => console.log('logged In'))
                   .catch((err) => {
-                    setError(err.message)
+                    setLogInError(err.message)
                   }).finally( () => setTimeout( () => {setLoading(false)}, 500) )
   }
 
@@ -70,7 +72,7 @@ const ContentProvider = ({children}:contextType) => {
   
     if (savedTheme) {
       setTheme(systemTheme);
-      setThemeUpdate('system')
+      setThemeUpdate('System')
     } 
     else {
       setTheme(theme);
@@ -109,7 +111,7 @@ const ContentProvider = ({children}:contextType) => {
     const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
     ? 'dark'
     : 'light';
-    console.log(themeUpdate)
+ 
     if (themeUpdate === 'System') {
       setThemeUpdate('Dark')
       setTheme('dark');
@@ -120,12 +122,13 @@ const ContentProvider = ({children}:contextType) => {
     }
     else {
       setThemeUpdate('System')
-      setTheme('dark');
+      setTheme(systemTheme);
     }
   };
 
   return (
-    <StateContext.Provider value={ {theme, handleThemeChange, signUp, logIn, logOut, user, loading, error, themeUpdate}}>
+    <StateContext.Provider value={ {theme, handleThemeChange, signUp, logIn, logOut, user, loading, signUpError,
+      logInError, themeUpdate}}>
         {children}
     </StateContext.Provider> 
   )

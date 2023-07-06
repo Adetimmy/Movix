@@ -8,6 +8,7 @@ import { useStateContext } from '@/context/Provider'
 import { MdOutlineReportGmailerrorred } from 'react-icons/md'
 import { ImSpinner7 } from 'react-icons/im'
 import { BsEye, BsEyeSlash } from 'react-icons/bs'
+import { signUpMsg } from '../firebaseError'
 
 
 const metadata = {
@@ -20,7 +21,7 @@ const Register = ({register, setRegister}:{
 }) => {
 
   const router = useRouter()
-  const {signUp, loading, error} = useStateContext()
+  const {signUp, loading } = useStateContext()
 
 
   const [show, setShow] = useState(false)
@@ -41,7 +42,10 @@ const Register = ({register, setRegister}:{
 
     try{
       await signUp(email, password, userId)
-      router.push('../auth')
+      .then(
+        () => setRegister(false)
+      )
+      
     
     }
 
@@ -105,7 +109,7 @@ const Register = ({register, setRegister}:{
                     </span>
                   </div>
                  
-                  {error && <p className='text-red-500 flex justify-center items-start gap-1'><MdOutlineReportGmailerrorred/>{error}</p>}
+                  {signUpMsg && <p className='text-red-500 flex justify-center items-start gap-1'><MdOutlineReportGmailerrorred/>{signUpMsg}</p>}
                   <button
                   type='button'
                   className='rounded-lg py-3 px-5 text-center hover:bg-slate-800 bg-black text-slate-200 text-xs md:text-sm font-bold uppercase mt-5 h-12 flex justify-center items-center gap-3'
