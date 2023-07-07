@@ -12,12 +12,12 @@ data:DataProps
 
 export const MovieInfo = ({data}:Props) => {
 
-  
+  console.log(data)
   return (
     <div className='absolute top-44 2xl:top-64 text-white flex flex-col font-display pt-3 px-2 sm:px-7 md:px-24'>
         <h1 className='lg:text-5xl sm:text-3xl text-xl sm:font-bold font-medium 2xl:text-9xl'>
             {/* John Wick 3: <br className='hidden md:block'/> Parabellum */}
-            {data?.original_title || data?.original_name || ''}
+             {data?.name || data?.original_title || data?.original_name || ''}
         </h1>
         <div className="flex items-center gap-5 2xl:gap-[180px] sm:mt-4 mt-2 text-white 2xl:my-4">
             <div className="flex items-center gap-2">
@@ -49,7 +49,7 @@ export const MovieInfo = ({data}:Props) => {
             />
         </div>
 
-        <p className="text-xs sm:text-sm md:text-base lg:w-1/3 md:1/4 mt-2 2xl:text-5xl">{data?.overview || ''}</p>
+        <p className="text-xs sm:text-sm md:text-base md:w-6/12 mt-2 2xl:text-3xl">{data?.overview || ''}</p>
 
         <Image
         src={youtube}

@@ -75,7 +75,7 @@ const Card = ({ info, size, height, icon }: InfoTech) => {
             usa {dateConvert(info.release_date || info.first_air_date)}
           </small>
           <p className="font-bold dark:text-gray-300 text-[#111827]">
-            {info.original_name || info.title || info.original_title }
+            {info.name || info.original_name || info.title || info.original_title }
           </p>
           <div className="flex dark:text-gray-400 items-center justify-between gap-4 my-1.5">
             <div className="flex items-center gap-1">
