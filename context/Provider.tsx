@@ -31,6 +31,7 @@ const ContentProvider = ({children}:contextType) => {
 
       ).catch((err) => {
         setSignUpError(err.message)
+        
       }).finally(  () => setTimeout( () => {setLoading(false)}, 500) )
   }
 

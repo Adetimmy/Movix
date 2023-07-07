@@ -46,7 +46,7 @@ const Register = ({register, setRegister}:{
       .then(
         
         () => {
-          signUpMsg === 'Firebase: Error (auth/invalid-email).' || 'Firebase: Error (auth/invalid-password).' || 'Firebase: Error (auth/internal-error).' ? setRegister(false) : setRegister(true)
+          signUpMsg? setRegister(false) : setRegister(true)
            
           }
       )
