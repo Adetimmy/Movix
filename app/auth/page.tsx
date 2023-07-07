@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, memo } from 'react'
 import Image from 'next/image'
 import logo from "@/public/assets/movie.jpg"
 import Link from 'next/link'
@@ -86,7 +86,7 @@ const handleClick = async () => {
                       {show ? <BsEye size={21} /> : <BsEyeSlash size={21} />}
                     </span>
                   </div>
-                  {logInMsg && <p className='text-red-500 flex items-center gap-1 text-sm sm:text-base'><MdOutlineReportGmailerrorred/>{logInMsg}</p>}
+                  {logInMsg && <p className='text-red-500 flex items-center  justify-center gap-1 text-sm sm:text-base'><MdOutlineReportGmailerrorred/>{logInMsg}</p>}
                 <button
                 type='button'
                 className='rounded-lg py-3 px-5 text-center hover:bg-slate-800 bg-black text-slate-200 text-xs md:text-sm font-bold uppercase mt-5 h-12 flex justify-center items-center gap-3'
@@ -111,4 +111,4 @@ const handleClick = async () => {
   )
 }
 
-export default Sigin
+export default memo(Sigin)

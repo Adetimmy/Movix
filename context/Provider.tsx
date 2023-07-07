@@ -51,10 +51,13 @@ const ContentProvider = ({children}:contextType) => {
   }
   const logIn = async (email: string, password:any) => {
               setLoading(true)
+              
     return  await signInWithEmailAndPassword(auth, email, password)
                   .then(() => console.log('logged In'))
                   .catch((err) => {
                     setLogInError(err.message)
+                    console.log(err.message)
+                    err.message === "Firebase: Error (auth/invalid-email)."? console.log(true) : console.log(false)
                   }).finally( () => setTimeout( () => {setLoading(false)}, 500) )
   }
 

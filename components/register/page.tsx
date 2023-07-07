@@ -1,5 +1,5 @@
 'use client'
-import { Dispatch, SetStateAction, useState} from 'react'
+import { Dispatch, SetStateAction, useEffect, useState} from 'react'
 import Image from "next/image"
 import logo from "@/public//assets/movie.jpg"
 import Link from "next/link"
@@ -23,6 +23,8 @@ const Register = ({register, setRegister}:{
   const {signUp, loading } = useStateContext()
   const {signUpMsg } = firebaseError()
 
+
+
   const [show, setShow] = useState(false)
   const [userId, setUserId] = useState<any>({
     userName:'',
@@ -42,7 +44,11 @@ const Register = ({register, setRegister}:{
     try{
       await signUp(email, password, userId)
       .then(
-        () => setRegister(false)
+        
+        () => {
+          signUpMsg === 'Firebase: Error (auth/invalid-email).' || 'Firebase: Error (auth/invalid-password).' || 'Firebase: Error (auth/internal-error).' ? setRegister(false) : setRegister(true)
+           
+          }
       )
       
     
@@ -108,7 +114,7 @@ const Register = ({register, setRegister}:{
                     </span>
                   </div>
                  
-                  {signUpMsg && <p className='text-red-500 flex justify-center items-start gap-1'><MdOutlineReportGmailerrorred/>{signUpMsg}</p>}
+                  {signUpMsg && <p className='text-red-500 flex justify-center items-center gap-1'><MdOutlineReportGmailerrorred/>{signUpMsg}</p>}
                   <button
                   type='button'
                   className='rounded-lg py-3 px-5 text-center hover:bg-slate-800 bg-black text-slate-200 text-xs md:text-sm font-bold uppercase mt-5 h-12 flex justify-center items-center gap-3'

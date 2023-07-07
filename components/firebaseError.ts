@@ -1,45 +1,67 @@
-"use client"
 
+"use client"
+import { useState, useEffect } from "react"
 import { useStateContext } from "@/context/Provider"
 
 
 export const firebaseError = () => {
-    const { logInError, signUpError } = useStateContext()
-    let logInMsg: string | null = null
-    let signUpMsg: string | null = null
+
     
+    const { logInError, signUpError } = useStateContext()
+    const [logInMsg, setLogInMsg] = useState<string | null>(null)
+    const [signUpMsg, setSignUpMsg] = useState<string | null>(null)
+   
+
+ useEffect(() => {
+
+
+
     switch (logInError) {
-        case logInError:'auth/user-not-found'
-        logInMsg = 'user not found'   
+        case "Firebase: Error (auth/user-not-found).": 
+        setLogInMsg(prev =>  'user not found')   
             break;
-        case logInError:'auth/invalid-password'
-        logInMsg = 'wrong password'   
+        case 'Firebase: Error (auth/invalid-password).':
+        setLogInMsg(prev =>  'wrong password')   
             break;
-        case logInError:'auth/invalid-email'
-        logInMsg = 'wrong email'   
+        case 'Firebase: Error (auth/invalid-email).':
+
+        setLogInMsg(prev => 'wrong email')   
             break;
-        case logInError:'auth/email-already-exists'
-        logInMsg = 'user already exists'   
+        case 'Firebase: Error (auth/email-already-exists).':
+        setLogInMsg(prev => 'user already exists')   
             break;
-        default:
+        case 'Firebase: Error (auth/network-request-failed).':
+        setLogInMsg(prev => 'Request failed')   
+            break;
+            default: 
+    
             break;
     }
     
     switch (signUpError) {
-        case signUpError:'auth/internal-error'
-        signUpMsg = 'network error'   
+        case 'Firebase: Error (auth/internal-error).':
+        setSignUpMsg(prev => 'network error')   
             break;
-        case signUpError:'auth/invalid-password'
-        signUpMsg = 'wrong password'   
+        case 'Firebase: Error (auth/invalid-password).':
+        setSignUpMsg(prev => 'wrong password')   
             break;
-        case signUpError:'auth/invalid-email'
-        signUpMsg = 'wrong email'   
+        case 'Firebase: Error (auth/invalid-email).':
+        setSignUpMsg(prev => 'wrong email')   
             break;
     
-        default:
+        default: 
+
             break;
     }
-    return {logInMsg, signUpMsg}
+    setTimeout(() => {setLogInMsg(null); setSignUpMsg(null)}, 3000)
+    
+ }, [logInMsg, signUpMsg])
+
+
+
+    
+     
+    return {logInMsg, signUpMsg,}
 }
 
 
