@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { useStateContext } from "@/context/Provider"
 
 
-export const firebaseError = () => {
+export const useFirebaseError = () => {
 
     
     const { logInError, signUpError } = useStateContext()

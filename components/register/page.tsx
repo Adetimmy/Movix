@@ -7,7 +7,7 @@ import { useStateContext } from '@/context/Provider'
 import { MdOutlineReportGmailerrorred } from 'react-icons/md'
 import { ImSpinner7 } from 'react-icons/im'
 import { BsEye, BsEyeSlash } from 'react-icons/bs'
-import { firebaseError } from '../firebaseError'
+import { useFirebaseError } from '../firebaseError'
 
 
 const metadata = {
@@ -21,7 +21,7 @@ const Register = ({register, setRegister}:{
 
 
   const {signUp, loading } = useStateContext()
-  const {signUpMsg } = firebaseError()
+  const {signUpMsg } = useFirebaseError()
 
 
 
